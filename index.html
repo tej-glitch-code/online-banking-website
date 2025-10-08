@@ -1,16 +1,61 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Online Banking - App</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Banking System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-grid">
-    <iframe src="header.html" class="frame header" title="header"></iframe>
-    <iframe src="menu.html" name="menuFrame" class="frame menu" title="menu"></iframe>
-    <iframe src="dashboard.html" name="contentFrame" class="frame content" title="content"></iframe>
-    <iframe src="footer.html" class="frame footer" title="footer"></iframe>
-  </div>
+    <!-- Header -->
+    <header>
+        <div class="logo">MyBank</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="signup.html">Sign Up</a>
+            <a href="login.html">Login</a>
+            <a href="transactions.html">Transactions</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to MyBank Online</h1>
+        <p>Secure, Fast, and Easy Online Banking</p>
+        <a href="signup.html" class="btn-primary">Get Started</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="card">
+            <h2>Sign Up</h2>
+            <p>Create your account in minutes</p>
+            <a href="signup.html" class="btn-secondary">Register</a>
+        </div>
+
+        <div class="card">
+            <h2>Login</h2>
+            <p>Access your account securely</p>
+            <a href="login.html" class="btn-secondary">Login</a>
+        </div>
+
+        <div class="card">
+            <h2>Transactions</h2>
+            <p>View your account activity</p>
+            <a href="transactions.html" class="btn-secondary">Check Transactions</a>
+        </div>
+
+        <div class="card">
+            <h2>Support</h2>
+            <p>24/7 customer support for you</p>
+            <a href="contact.html" class="btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 MyBank. All Rights Reserved.
+    </footer>
 </body>
 </html>
