@@ -1,0 +1,37 @@
+/* Put under frontend/css/style.css */
+:root { --accent:#2b7cff; --muted:#666; --bg:#f7f9fc; }
+html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Arial;background:var(--bg);color:#222}
+.app-grid{display:grid;grid-template-columns:240px 1fr;grid-template-rows:80px 1fr 40px;grid-template-areas:
+  "header header"
+  "menu content"
+  "footer footer";height:100vh}
+.frame{border:0;width:100%}
+.header{grid-area:header;height:80px}
+.menu{grid-area:menu;height:calc(100vh - 120px)}
+.content{grid-area:content;height:calc(100vh - 120px);overflow:auto}
+.footer{grid-area:footer;height:40px}
+
+.menu-body{padding:16px;background:#fff;height:100%}
+.menu-nav h3{margin:0 0 12px}
+.menu-nav ul{list-style:none;padding:0}
+.menu-nav ul li{margin:8px 0}
+.menu-nav a{color:#111;text-decoration:none}
+
+.header-body{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid #eee}
+.footer-body{background:#fff;display:flex;align-items:center;justify-content:center;border-top:1px solid #eee}
+
+.content-body .container{padding:20px}
+.cards{display:flex;gap:12px;margin-bottom:16px}
+.card{background:#fff;padding:14px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);flex:1}
+
+.auth-page{display:flex;align-items:center;justify-content:center;height:100vh;background:linear-gradient(180deg,#eef6ff,#f7f9fc)}
+.auth-card{background:#fff;padding:22px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.06);width:320px}
+.auth-card input{width:100%;padding:8px;margin:6px 0;border:1px solid #ddd;border-radius:4px}
+.auth-card button{width:100%;padding:10px;background:var(--accent);color:#fff;border:0;border-radius:6px;margin-top:10px}
+
+table{width:100%;border-collapse:collapse;background:#fff}
+thead th{background:#fafafa;border-bottom:1px solid #eee;padding:10px;text-align:left}
+tbody td{padding:10px;border-bottom:1px solid #f0f0f0}
+
+.search-row{display:flex;gap:8px;margin:12px 0}
+.search-row input{flex:1;padding:8px;border:1px solid #ddd;border-radius:4px}
