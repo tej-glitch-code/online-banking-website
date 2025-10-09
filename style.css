@@ -89,33 +89,217 @@ header nav a:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.card h2 {
-    margin-bottom: 15px;
-    color: #16a085;
+/* ========================
+   General Reset & Body
+======================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.card p {
-    margin-bottom: 20px;
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
 }
 
-.btn-secondary {
-    text-decoration: none;
-    color: white;
+/* ========================
+   Header & Navigation
+======================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
     background-color: #16a085;
-    padding: 10px 25px;
-    border-radius: 30px;
+    color: white;
+}
+
+header .logo {
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
-.btn-secondary:hover {
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+header nav a:hover,
+header nav a.active {
+    text-decoration: underline;
+}
+
+/* ========================
+   Homepage Cards
+======================== */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px 20px;
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h3 {
+    color: #16a085;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 0.95rem;
+}
+
+/* ========================
+   Form Section (Signup/Login/Contact)
+======================== */
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    min-height: 70vh;
+}
+
+.form-container {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 25px;
+    color: #16a085;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+textarea {
+    resize: none;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #16a085;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
     background-color: #1abc9c;
 }
 
-/* Footer */
-footer {
+.form-container p {
+    margin-top: 15px;
+}
+
+.form-container a {
+    color: #16a085;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* ========================
+   Transactions Table
+======================== */
+.transactions-section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.transactions-section h2 {
     text-align: center;
-    padding: 20px;
-    background-color: #2c3e50;
+    color: #16a085;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #16a085;
     color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* ========================
+   Footer
+======================== */
+footer {
+    background-color: #16a085;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
     margin-top: 50px;
+}
+
+/* ========================
+   Responsive
+======================== */
+@media screen and (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    header nav a {
+        margin: 10px 0;
+    }
 }
