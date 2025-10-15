@@ -9,29 +9,14 @@
 <body>
 <div class="auth-card">
   <h2>Login</h2>
-  <form id="loginForm" action="LoginServlet" method="POST">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <small id="loginError">Invalid username or password</small>
+  <form id="loginForm">
+    <label>Username<input name="username" required></label>
+    <label>Password<input type="password" name="password" required></label>
+    <small id="loginError"></small>
     <button type="submit">Login</button>
   </form>
   <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
 </div>
-
-<script>
-const loginForm = document.getElementById('loginForm');
-const loginError = document.getElementById('loginError');
-loginError.style.display = 'none';
-
-loginForm.addEventListener('submit', e => {
-  if(!loginForm.username.value || !loginForm.password.value){
-    e.preventDefault();
-    loginError.textContent = "Please enter username and password";
-    loginError.style.display = 'block';
-  } else {
-    loginError.style.display = 'none';
-  }
-});
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>

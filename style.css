@@ -1,231 +1,259 @@
-/* =========================
+/* ===========================
    General Reset & Body
-========================= */
+=========================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* =========================
+/* ===========================
    Header
-========================= */
+=========================== */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: #0077b6;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #16a085;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 header .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 header nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 500;
-    transition: 0.3s;
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
 header nav a:hover {
-    color: #00b4d8;
+  text-decoration: underline;
 }
 
-/* =========================
-   Hero Section
-========================= */
-.hero {
+header .user-welcome {
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+/* Responsive Header */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
     text-align: center;
-    padding: 120px 20px;
-    background: linear-gradient(to right, #0077b6, #00b4d8);
-    color: white;
-    border-radius: 0 0 50px 50px;
+  }
+  header nav {
+    margin: 10px 0;
+  }
+  header nav a {
+    display: block;
+    margin: 5px 0;
+  }
+  header .user-welcome {
+    margin: 10px 0;
+  }
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to right, #1abc9c, #16a085);
+  color: white;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+  font-size: 48px;
+  margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .btn-primary {
-    background-color: white;
-    color: #0077b6;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
+  background-color: white;
+  color: #16a085;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #00b4d8;
-    color: white;
-}
-
-/* =========================
-   Cards / Features
-========================= */
-.features, .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-}
-
-.card {
-    background: white;
-    padding: 30px 20px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.card h2, .card h3 {
-    margin-bottom: 15px;
-    color: #0077b6;
-}
-
-.card p {
-    font-size: 1rem;
-    margin-bottom: 20px;
+  background-color: #1abc9c;
+  color: white;
 }
 
 .btn-secondary {
-    padding: 10px 25px;
-    background-color: #00b4d8;
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s;
+  background-color: #16a085;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .btn-secondary:hover {
-    background-color: #0077b6;
+  background-color: #1abc9c;
 }
 
-/* =========================
-   Auth Pages (Login / Signup)
-========================= */
+/* ===========================
+   Cards Section (Features / Dashboard)
+=========================== */
+.cards, .features {
+  display: grid;
+  gap: 25px;
+  margin: 50px auto;
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background-color: white;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card h3, .card h2 {
+  color: #16a085;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   Auth Forms (Signup / Login)
+=========================== */
 .auth-card {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 20px;
-    max-width: 400px;
-    margin: 80px auto;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    text-align: center;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 .auth-card h2 {
-    color: #0077b6;
-    margin-bottom: 25px;
+  margin-bottom: 25px;
+  color: #16a085;
 }
 
 .auth-card input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .auth-card button {
-    width: 100%;
-    padding: 12px;
-    background-color: #0077b6;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+  width: 100%;
+  padding: 12px;
+  background-color: #16a085;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .auth-card button:hover {
-    background-color: #00b4d8;
+  background-color: #1abc9c;
 }
 
 .auth-card small {
-    display: block;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    color: red;
-    font-size: 0.9rem;
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #555;
 }
 
-/* =========================
+/* ===========================
    Transactions Table
-========================= */
-.transactions-section table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    background: white;
+=========================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-top: 20px;
 }
 
-.transactions-section th {
-    background-color: #0077b6;
-    color: white;
+th, td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
 }
 
-.transactions-section td,
-.transactions-section th {
-    padding: 15px;
-    text-align: center;
+th {
+  background-color: #16a085;
+  color: white;
 }
 
-.transactions-section tr:hover {
-    background-color: #f1f1f1;
+tr:hover {
+  background-color: #f1f1f1;
 }
 
-/* =========================
+/* ===========================
    Footer
-========================= */
+=========================== */
 footer {
-    background-color: #0077b6;
-    color: white;
-    text-align: center;
-    padding: 25px 0;
-    margin-top: 50px;
+  background-color: #16a085;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
 }
 
-/* =========================
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
    Responsive
-========================= */
-@media(max-width: 768px){
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    header nav a {
-        margin: 10px 0;
-    }
-    .hero h1 { font-size: 2.2rem; }
+=========================== */
+@media screen and (max-width: 768px) {
+  .cards, .features {
+    grid-template-columns: 1fr;
+  }
 }

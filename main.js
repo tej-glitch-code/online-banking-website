@@ -1,82 +1,63 @@
-// frontend/js/main.js
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ===============================
-  // 1. Signup Page Validation
-  // ===============================
-  const signupForm = document.getElementById('signupForm');
-  const passwordHelp = document.getElementById('passwordHelp');
-
-  if(signupForm && passwordHelp){
-    passwordHelp.style.display = 'none';
-    signupForm.addEventListener('submit', (e) => {
-      const password = signupForm.password.value;
-      const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-      if(!strongPassword.test(password)){
-        e.preventDefault();
-        passwordHelp.style.display = 'block';
-      } else {
-        passwordHelp.style.display = 'none';
-      }
-    });
-  }
-
-  // ===============================
-  // 2. Login Page Validation
-  // ===============================
-  const loginForm = document.getElementById('loginForm');
-  const loginError = document.getElementById('loginError');
-
-  if(loginForm && loginError){
-    loginError.style.display = 'none';
-    loginForm.addEventListener('submit', (e) => {
-      const username = loginForm.username.value.trim();
-      const password = loginForm.password.value.trim();
-      if(!username || !password){
-        e.preventDefault();
-        loginError.textContent = 'Please enter username and password';
-        loginError.style.display = 'block';
-      } else {
-        loginError.style.display = 'none';
-      }
-    });
-  }
-
-  // ===============================
-  // 3. Transactions Table Filter
-  // ===============================
+  // Transactions filter
   const txSearch = document.getElementById('txSearch');
-  const txFilterType = document.getElementById('txFilterType');
   const txTable = document.getElementById('txTable');
+  const txFilterType = document.getElementById('txFilterType');
   const reloadBtn = document.getElementById('reloadBtn');
 
-  function filterTransactions(){
+  function filterRows() {
     if(!txTable) return;
-    const query = txSearch ? txSearch.value.trim().toLowerCase() : '';
-    const type = txFilterType ? txFilterType.value : '';
+    const q = txSearch.value.toLowerCase();
+    const type = txFilterType.value;
     Array.from(txTable.tBodies[0].rows).forEach(row => {
       const cells = Array.from(row.cells).map(c => c.textContent.toLowerCase());
-      const matchesQuery = cells.join(' ').includes(query);
+      const matchesQ = cells.join(' ').includes(q);
       const matchesType = !type || row.cells[4].textContent === type;
-      row.style.display = (matchesQuery && matchesType) ? '' : 'none';
+      row.style.display = (matchesQ && matchesType) ? '' : 'none';
     });
   }
 
-  if(txSearch) txSearch.addEventListener('input', filterTransactions);
-  if(txFilterType) txFilterType.addEventListener('change', filterTransactions);
-  if(reloadBtn) reloadBtn.addEventListener('click', () => {
-    filterTransactions();
-    alert('Reloaded (frontend demo). Connect backend for real data.');
-  });
+  if(txSearch) txSearch.addEventListener('input', filterRows);
+  if(txFilterType) txFilterType.addEventListener('change', filterRows);
+  if(reloadBtn) reloadBtn.addEventListener('click', () => { filterRows(); alert('Frontend reload demo.'); });
 
-  // ===============================
-  // 4. Dashboard Cards (Optional)
-  // ===============================
-  // Example placeholder: can update dynamically after fetching API
-  const dashboardCards = document.querySelectorAll('.cards .card strong');
-  // fetch('/api/dashboard').then(res => res.json()).then(data => {
-  //   dashboardCards[0].textContent = '₹ ' + data.balance;
-  //   dashboardCards[1].textContent = '₹ ' + data.pending;
-  //   dashboardCards[2].textContent = '₹ ' + data.lastTransaction;
-  // });
+  // Signup validation
+  const signupForm = document.getElementById('signupForm');
+  if(signupForm){
+    signupForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const password = signupForm.password.value;
+      const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+      if(!pattern.test(password)){
+        alert('Password must be 8+ chars, include uppercase, lowercase, number & symbol');
+        return;
+      }
+      alert('Signup successful! (Demo)');
+      signupForm.reset();
+    });
+  }
+
+  // Login validation
+  const loginForm = document.getElementById('loginForm');
+  if(loginForm){
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const username = loginForm.username.value;
+      const password = loginForm.password.value;
+      if(username === '' || password === ''){
+        alert('Enter both username and password');
+        return;
+      }
+      // Demo: wrong login
+      if(username !== 'demo' || password !== 'Demo@123'){
+        alert('Invalid credentials!');
+        return;
+      }
+      alert('Login successful!');
+      loginForm.reset();
+      window.location.href = 'dashboard.html';
+    });
+  }
+
 });

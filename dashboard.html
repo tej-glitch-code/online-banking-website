@@ -10,27 +10,27 @@
 <header>
   <div class="logo">MyBank</div>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="dashboard.html">Dashboard</a>
     <a href="transactions.html">Transactions</a>
     <a href="profile.html">Profile</a>
     <a href="logout.html">Logout</a>
   </nav>
 </header>
 
-<main class="cards">
-  <div class="card"><h3>Balance</h3><strong>₹ 25,000.00</strong></div>
-  <div class="card"><h3>Pending Transfers</h3><strong>₹ 0.00</strong></div>
-  <div class="card"><h3>Last Transaction</h3><strong>₹ 2,500.00</strong></div>
+<main class="container">
+  <h1>Dashboard</h1>
+  <div class="cards">
+    <div class="card">Balance<br><strong>₹ 25,000</strong></div>
+    <div class="card">Pending Transfers<br><strong>₹ 0</strong></div>
+    <div class="card">Last Transaction<br><strong>₹ 2,500</strong></div>
+  </div>
+
+  <section>
+    <h2>Recent Transactions</h2>
+    <iframe src="transactions.html" style="width:100%;height:350px;border:1px solid #ddd"></iframe>
+  </section>
 </main>
-
-<section class="transactions-section">
-  <h2>Recent Transactions</h2>
-  <iframe src="transactions.html" style="width:100%; height:350px; border:1px solid #ddd;"></iframe>
-</section>
-
-<footer>
-  &copy; 2025 MyBank. All Rights Reserved.
-</footer>
+<script src="js/main.js"></script>
 </body>
 </html>
+
