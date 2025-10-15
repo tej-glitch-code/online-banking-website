@@ -1,16 +1,41 @@
-<!doctype html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="css/style.css"><title>Sign Up</title></head>
-<body class="auth-page">
-  <div class="auth-card">
-    <h2>Create account</h2>
-    <form id="signupForm" action="SignupServlet" method="POST">
-      <label>Full Name<input name="full_name" required></label>
-      <label>Username<input name="username" required></label>
-      <label>Email<input type="email" name="email" required></label>
-      <label>Phone<input name="phone"></label>
-      <label>Password<input type="password" name="password" required></label>
-      <button type="submit">Sign up</button>
-    </form>
-    <p>Already a member? <a href="login.html">Login</a></p>
-  </div>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up - MyBank</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-card">
+  <h2>Create Account</h2>
+  <form id="signupForm" action="SignupServlet" method="POST">
+    <input type="text" name="full_name" placeholder="Full Name" required>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="phone" placeholder="Phone">
+    <input type="password" name="password" placeholder="Password" required>
+    <small id="passwordHelp">Password must have 8+ chars, uppercase, lowercase, number & special char</small>
+    <button type="submit">Sign Up</button>
+  </form>
+  <p>Already a member? <a href="login.html">Login</a></p>
+</div>
+
+<script>
+const form = document.getElementById('signupForm');
+const passwordHelp = document.getElementById('passwordHelp');
+passwordHelp.style.display = 'none';
+
+form.addEventListener('submit', e => {
+  const pw = form.password.value;
+  const strong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+  if(!strong.test(pw)){
+    e.preventDefault();
+    passwordHelp.style.display = 'block';
+  } else {
+    passwordHelp.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>
