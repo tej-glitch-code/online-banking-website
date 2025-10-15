@@ -5,18 +5,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profile - MyBank</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f8fafc;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 60px auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+  }
+
+  h1 {
+    color: #0ea5e9;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    row-gap: 15px;
+    column-gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  dt {
+    font-weight: 600;
+    color: #374151;
+  }
+
+  dd {
+    margin: 0;
+    color: #4b5563;
+    background: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+
+  button {
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background-color: #38bdf8;
+  }
+</style>
 </head>
 <body>
-<main class="container">
-  <h1>Profile</h1>
-  <dl>
-    <dt>Full name</dt><dd id="pName">Tejashwini</dd>
-    <dt>Username</dt><dd id="pUser">tej</dd>
-    <dt>Email</dt><dd id="pEmail">tej@example.com</dd>
-    <dt>Phone</dt><dd id="pPhone">9876543210</dd>
-  </dl>
-  <button id="editProfile">Edit</button>
-</main>
-<script src="js/main.js"></script>
+  <main class="container">
+    <h1>Your Profile</h1>
+    <dl>
+      <dt>Full Name</dt><dd id="pName">Tejashwini</dd>
+      <dt>Username</dt><dd id="pUser">tej</dd>
+      <dt>Email</dt><dd id="pEmail">tej@example.com</dd>
+      <dt>Phone</dt><dd id="pPhone">9876543210</dd>
+    </dl>
+    <button id="editProfile">Edit Profile</button>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    const editBtn = document.getElementById('editProfile');
+    editBtn.addEventListener('click', () => {
+      alert('Edit profile feature coming soon!');
+    });
+  </script>
 </body>
 </html>

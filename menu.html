@@ -1,15 +1,86 @@
-<!doctype html>
-<html>
-<head><meta charset="utf-8"><link rel="stylesheet" href="css/style.css"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu - MyBank</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body.menu-body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f8fafc;
+  }
+
+  .menu-nav {
+    width: 240px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0ea5e9, #0284c7);
+    color: white;
+    padding: 25px 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  .menu-nav h3 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+  }
+
+  .menu-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-nav li {
+    margin-bottom: 18px;
+  }
+
+  .menu-nav a {
+    display: block;
+    color: #f0f9ff;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.25s ease;
+  }
+
+  .menu-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+  }
+
+  .menu-nav a:active {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .menu-nav a.logout {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #f87171;
+    font-weight: bold;
+  }
+
+  .menu-nav a.logout:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: white;
+  }
+
+</style>
+</head>
 <body class="menu-body">
   <nav class="menu-nav">
-    <h3>My Bank</h3>
+    <h3>🏦 MyBank</h3>
     <ul>
-      <li><a href="dashboard.html" target="contentFrame">Dashboard</a></li>
-      <li><a href="transactions.html" target="contentFrame">Transactions</a></li>
-      <li><a href="transfer.html" target="contentFrame">Transfer Funds</a></li>
-      <li><a href="profile.html" target="contentFrame">Profile</a></li>
-      <li><a href="login.html" target="_top">Logout</a></li>
+      <li><a href="dashboard.html" target="contentFrame">🏠 Dashboard</a></li>
+      <li><a href="transactions.html" target="contentFrame">💳 Transactions</a></li>
+      <li><a href="transfer.html" target="contentFrame">💸 Transfer Funds</a></li>
+      <li><a href="profile.html" target="contentFrame">👤 Profile</a></li>
+      <li><a href="login.html" target="_top" class="logout">🚪 Logout</a></li>
     </ul>
   </nav>
 </body>

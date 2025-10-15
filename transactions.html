@@ -1,36 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transactions - MyBank</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions - Online Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #f5f7fa;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .transactions-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      color: #004e92;
+      margin-bottom: 25px;
+    }
+
+    .search-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-row input,
+    .search-row select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 32%;
+      font-size: 14px;
+    }
+
+    .search-row button {
+      background: linear-gradient(90deg, #004e92, #00d4ff);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .search-row button:hover {
+      opacity: 0.8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    thead {
+      background: linear-gradient(90deg, #004e92, #00d4ff);
+      color: #fff;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 12px;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f2f6ff;
+    }
+
+    tbody tr:hover {
+      background-color: #e8f4ff;
+      transition: 0.3s;
+    }
+
+    .status {
+      padding: 5px 12px;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .status.completed {
+      background-color: #28a745;
+    }
+
+    .status.pending {
+      background-color: #ffc107;
+    }
+
+    .status.failed {
+      background-color: #dc3545;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-<main class="container">
-  <h1>Transactions</h1>
-  <div class="search-row">
-    <input id="txSearch" placeholder="Search by account, type, status or amount">
-    <select id="txFilterType">
-      <option value="">All types</option>
-      <option>TRANSFER</option>
-      <option>DEPOSIT</option>
-      <option>WITHDRAWAL</option>
-    </select>
-    <button id="reloadBtn">Reload</button>
-  </div>
+  <main class="transactions-container">
+    <h1>Transaction Records</h1>
 
-  <table id="txTable">
-    <thead>
-      <tr><th>ID</th><th>From</th><th>To</th><th>Amount</th><th>Type</th><th>Time</th><th>Status</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>ACC1001</td><td>ACC2002</td><td>5000</td><td>TRANSFER</td><td>2025-10-07</td><td>COMPLETED</td></tr>
-      <tr><td>2</td><td>ACC1001</td><td>ACC3003</td><td>2500</td><td>TRANSFER</td><td>2025-10-02</td><td>COMPLETED</td></tr>
-      <tr><td>3</td><td>ACC1001</td><td>ACC1001</td><td>20000</td><td>DEPOSIT</td><td>2025-09-15</td><td>COMPLETED</td></tr>
-    </tbody>
-  </table>
-</main>
-<script src="js/main.js"></script>
+    <div class="search-row">
+      <input id="txSearch" placeholder="Search transactions...">
+      <select id="txFilterType">
+        <option value="">All types</option>
+        <option>TRANSFER</option>
+        <option>DEPOSIT</option>
+        <option>WITHDRAWAL</option>
+      </select>
+      <button id="reloadBtn">Reload</button>
+    </div>
+
+    <table id="txTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>ACC1001</td>
+          <td>ACC2002</td>
+          <td>₹5,000</td>
+          <td>TRANSFER</td>
+          <td>2025-10-07</td>
+          <td><span class="status completed">Completed</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>ACC1001</td>
+          <td>ACC3003</td>
+          <td>₹2,500</td>
+          <td>TRANSFER</td>
+          <td>2025-10-02</td>
+          <td><span class="status completed">Completed</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>ACC1001</td>
+          <td>ACC1001</td>
+          <td>₹20,000</td>
+          <td>DEPOSIT</td>
+          <td>2025-09-15</td>
+          <td><span class="status completed">Completed</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

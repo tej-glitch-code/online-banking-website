@@ -3,68 +3,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transfer Funds - My Bank</title>
+  <title>Transfer Funds - Online Bank</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #f4f7fc;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #004e92, #00d4ff);
+      color: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 75vh;
+    }
+
+    .auth-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .auth-card h2 {
+      text-align: center;
+      color: #004e92;
+      margin-bottom: 25px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 15px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-top: 5px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    form input:focus {
+      border-color: #004e92;
+      box-shadow: 0 0 5px rgba(0, 78, 146, 0.3);
+    }
+
+    button {
+      width: 100%;
+      background: linear-gradient(90deg, #004e92, #00d4ff);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      background: #004e92;
+      color: white;
+      padding: 15px 10px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #aee8ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <div class="logo">MyBank</div>
+    <div class="logo">Online Bank</div>
     <nav>
-      <a href="index.html">Home</a>
       <a href="dashboard.html">Dashboard</a>
       <a href="transactions.html">Transactions</a>
       <a href="transfer.html">Transfer</a>
       <a href="profile.html">Profile</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html">Login</a>
-      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Logout</a>
     </nav>
   </header>
 
   <!-- Transfer Form -->
-  <main class="auth-card">
-    <h2>Transfer Funds</h2>
-    <form id="transferForm">
-      <label>From Account
-        <input type="text" name="fromAccount" placeholder="Enter your account number" required>
-      </label>
-      <label>To Account
-        <input type="text" name="toAccount" placeholder="Enter recipient account number" required>
-      </label>
-      <label>Amount
-        <input type="number" name="amount" placeholder="Enter amount" required min="1">
-      </label>
-      <label>Remarks
-        <input type="text" name="remarks" placeholder="Optional">
-      </label>
-      <button type="submit">Transfer</button>
-    </form>
+  <main>
+    <div class="auth-card">
+      <h2>Transfer Funds</h2>
+      <form id="transferForm">
+        <label>From Account
+          <input type="text" name="fromAccount" placeholder="Enter your account number" required>
+        </label>
+        <label>To Account
+          <input type="text" name="toAccount" placeholder="Enter recipient account number" required>
+        </label>
+        <label>Amount
+          <input type="number" name="amount" placeholder="Enter amount" required min="1">
+        </label>
+        <label>Remarks
+          <input type="text" name="remarks" placeholder="Optional">
+        </label>
+        <button type="submit">Transfer</button>
+      </form>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <p>&copy; <span id="year"></span> My Bank — Student Project</p>
-      <p>
-        <a href="contact.html">Contact Us</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Service</a>
-      </p>
-    </div>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <p>&copy; <span id="year"></span> Online Bank — Student Project</p>
+    <p>
+      <a href="contact.html">Contact Us</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </p>
   </footer>
 
   <!-- JS -->
   <script src="js/main.js"></script>
   <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     const form = document.getElementById('transferForm');
     form.addEventListener('submit', e => {
       e.preventDefault();
 
-      // Basic validation
       const from = form.fromAccount.value.trim();
       const to = form.toAccount.value.trim();
       const amount = parseFloat(form.amount.value);
@@ -79,10 +195,7 @@
         return;
       }
 
-      // Simulate success
       alert(`₹${amount} transferred from ${from} to ${to} successfully!`);
-
-      // Reset form
       form.reset();
     });
   </script>

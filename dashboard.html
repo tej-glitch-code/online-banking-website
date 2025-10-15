@@ -1,36 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard - MyBank</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - MyBank</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header>
-  <div class="logo">MyBank</div>
-  <nav>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="transactions.html">Transactions</a>
-    <a href="profile.html">Profile</a>
-    <a href="logout.html">Logout</a>
-  </nav>
-</header>
+  <!-- ================= Header ================= -->
+  <header>
+    <div class="logo">MyBank</div>
+    <nav>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="profile.html">Profile</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
 
-<main class="container">
-  <h1>Dashboard</h1>
-  <div class="cards">
-    <div class="card">Balance<br><strong>₹ 25,000</strong></div>
-    <div class="card">Pending Transfers<br><strong>₹ 0</strong></div>
-    <div class="card">Last Transaction<br><strong>₹ 2,500</strong></div>
-  </div>
-
-  <section>
-    <h2>Recent Transactions</h2>
-    <iframe src="transactions.html" style="width:100%;height:350px;border:1px solid #ddd"></iframe>
+  <!-- ================= Hero Section ================= -->
+  <section class="hero">
+    <h1>Welcome to MyBank</h1>
+    <p>Your secure online banking dashboard</p>
+    <a href="transactions.html" class="btn-primary">View All Transactions</a>
   </section>
-</main>
-<script src="js/main.js"></script>
+
+  <!-- ================= Main Dashboard ================= -->
+  <main class="container">
+    <h2 style="text-align:center; color:#004e92; margin-top:40px;">Account Summary</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Available Balance</h3>
+        <p><strong>₹ 25,000</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Pending Transfers</h3>
+        <p><strong>₹ 0</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Last Transaction</h3>
+        <p><strong>₹ 2,500</strong></p>
+      </div>
+    </div>
+
+    <!-- ================= Transactions Section ================= -->
+    <section class="transactions-section">
+      <h2 style="text-align:center; color:#004e92;">Recent Transactions</h2>
+      <iframe 
+        src="transactions.html" 
+        style="width:100%; height:400px; border:none; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); margin-top:20px;">
+      </iframe>
+    </section>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer>
+    <p>&copy; 2025 MyBank. All rights reserved. | 
+      <a href="privacy.html">Privacy Policy</a> | 
+      <a href="terms.html">Terms of Service</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
+
 

@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Transactions filter
+  // === Transactions Filter ===
   const txSearch = document.getElementById('txSearch');
   const txTable = document.getElementById('txTable');
   const txFilterType = document.getElementById('txFilterType');
   const reloadBtn = document.getElementById('reloadBtn');
 
   function filterRows() {
-    if(!txTable) return;
+    if (!txTable) return;
     const q = txSearch.value.toLowerCase();
     const type = txFilterType.value;
     Array.from(txTable.tBodies[0].rows).forEach(row => {
@@ -18,18 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if(txSearch) txSearch.addEventListener('input', filterRows);
-  if(txFilterType) txFilterType.addEventListener('change', filterRows);
-  if(reloadBtn) reloadBtn.addEventListener('click', () => { filterRows(); alert('Frontend reload demo.'); });
+  if (txSearch) txSearch.addEventListener('input', filterRows);
+  if (txFilterType) txFilterType.addEventListener('change', filterRows);
+  if (reloadBtn) reloadBtn.addEventListener('click', () => {
+    filterRows();
+    alert('Frontend reload demo.');
+  });
 
-  // Signup validation
+  // === Signup Validation ===
   const signupForm = document.getElementById('signupForm');
-  if(signupForm){
+  if (signupForm) {
     signupForm.addEventListener('submit', e => {
       e.preventDefault();
       const password = signupForm.password.value;
       const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
-      if(!pattern.test(password)){
+      if (!pattern.test(password)) {
         alert('Password must be 8+ chars, include uppercase, lowercase, number & symbol');
         return;
       }
@@ -38,26 +41,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Login validation
+  // === Login Validation ===
   const loginForm = document.getElementById('loginForm');
-  if(loginForm){
+  if (loginForm) {
     loginForm.addEventListener('submit', e => {
       e.preventDefault();
-      const username = loginForm.username.value;
-      const password = loginForm.password.value;
-      if(username === '' || password === ''){
+      const username = loginForm.username.value.trim();
+      const password = loginForm.password.value.trim();
+
+      if (!username || !password) {
         alert('Enter both username and password');
         return;
       }
-      // Demo: wrong login
-      if(username !== 'demo' || password !== 'Demo@123'){
+
+      // Demo credentials
+      if (username !== 'user123' || password !== 'bank123') {
         alert('Invalid credentials!');
         return;
       }
+
       alert('Login successful!');
       loginForm.reset();
-      window.location.href = 'dashboard.html';
+      setTimeout(() => window.location.href = 'dashboard.html', 800);
     });
   }
+
+  // === Footer Year ===
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 });

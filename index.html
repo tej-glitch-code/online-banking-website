@@ -5,8 +5,169 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MyBank Online</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* General Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    background-color: #f9fafb;
+    color: #1f2937;
+    scroll-behavior: smooth;
+  }
+
+  /* Sticky Header */
+  header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #1f2937;
+    color: #f3f4f6;
+    flex-wrap: wrap;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  header .logo {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  header nav a {
+    color: #f3f4f6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  header nav a:hover {
+    color: #38bdf8;
+  }
+
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 120px 20px 80px;
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .btn-primary {
+    background-color: #fff;
+    color: #0ea5e9;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #e0f2fe;
+  }
+
+  /* Features Section */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  .card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+
+  .card h2 {
+    margin-bottom: 10px;
+    color: #0ea5e9;
+  }
+
+  .card p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #374151;
+  }
+
+  .btn-secondary {
+    background-color: #0ea5e9;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .btn-secondary:hover {
+    background-color: #38bdf8;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f2937;
+    color: #f3f4f6;
+    margin-top: 50px;
+    font-size: 14px;
+  }
+
+  /* Responsive */
+  @media(max-width: 600px) {
+    .hero h1 {
+      font-size: 32px;
+    }
+    .hero p {
+      font-size: 16px;
+    }
+    header nav {
+      width: 100%;
+      margin-top: 10px;
+      justify-content: center;
+    }
+  }
+</style>
 </head>
 <body>
+
 <header>
   <div class="logo">MyBank</div>
   <nav>
@@ -50,7 +211,6 @@
 <footer>
   &copy; 2025 MyBank. All Rights Reserved.
 </footer>
-<script src="js/main.js"></script>
+
 </body>
 </html>
-
