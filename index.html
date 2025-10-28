@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MyBank Online</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Header -->
 <header>
   <div class="logo">MyBank</div>
   <nav>
@@ -18,12 +20,14 @@
   </nav>
 </header>
 
+<!-- Hero Section -->
 <section class="hero">
   <h1>Welcome to MyBank Online</h1>
   <p>Secure, Fast, and Easy Online Banking</p>
   <a href="signup.html" class="btn-primary">Get Started</a>
 </section>
 
+<!-- Features Section -->
 <section class="features">
   <div class="card">
     <h2>Sign Up</h2>
@@ -47,10 +51,15 @@
   </div>
 </section>
 
+<!-- Footer -->
 <footer>
-  &copy; 2025 MyBank. All Rights Reserved.
+  &copy; <span id="year"></span> MyBank — Student Project
 </footer>
-<script src="js/main.js"></script>
+
+<script>
+  // Automatically update year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="main.js"></script>
 </body>
 </html>
-

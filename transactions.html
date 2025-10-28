@@ -4,9 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Transactions - MyBank</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<header>
+  <div class="logo">MyBank</div>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="transactions.html">Transactions</a>
+    <a href="transfer.html">Transfer</a>
+    <a href="profile.html">Profile</a>
+    <a href="logout.html">Logout</a>
+  </nav>
+</header>
+
 <main class="container">
   <h1>Transactions</h1>
   <div class="search-row">
@@ -19,7 +31,6 @@
     </select>
     <button id="reloadBtn">Reload</button>
   </div>
-
   <table id="txTable">
     <thead>
       <tr><th>ID</th><th>From</th><th>To</th><th>Amount</th><th>Type</th><th>Time</th><th>Status</th></tr>
@@ -31,6 +42,14 @@
     </tbody>
   </table>
 </main>
-<script src="js/main.js"></script>
+
+<footer>
+  &copy; <span id="year"></span> MyBank — Student Project
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="main.js"></script>
 </body>
 </html>

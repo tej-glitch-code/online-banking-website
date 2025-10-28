@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transfer Funds - MyBank</title>
+<title>Feedback - MyBank</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
   <div class="logo">MyBank</div>
   <nav>
@@ -15,25 +14,18 @@
     <a href="transactions.html">Transactions</a>
     <a href="transfer.html">Transfer</a>
     <a href="profile.html">Profile</a>
-    <a href="logout.html">Logout</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<main class="auth-card">
-  <h2>Transfer Funds</h2>
-  <form id="transferForm">
-    <label>From Account<input type="text" name="fromAccount" placeholder="Enter your account number" required></label>
-    <label>To Account<input type="text" name="toAccount" placeholder="Enter recipient account number" required></label>
-    <label>Amount<input type="number" name="amount" placeholder="Enter amount" required min="1"></label>
-    <label>Remarks<input type="text" name="remarks" placeholder="Optional"></label>
-    <button type="submit">Transfer</button>
-  </form>
+<main class="container">
+  <h1>Feedback</h1>
+  <p>Submit your suggestions or complaints here.</p>
 </main>
 
 <footer>
   &copy; <span id="year"></span> MyBank — Student Project
 </footer>
-
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
